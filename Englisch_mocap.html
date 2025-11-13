@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Markerless Motion Capture</h1>
+					<p>
+						<em>by</em>
+						<br>
+						<strong>Paul Thomasius</strong>
+					</p>
+				</section>
+				<section>
+					<h2>Introduction</h2>
+					<p>
+						<em>What is Markerless Motion Capture?</em>
+					</p>
+					<p class="fragment">
+						Motion Capture describes the process of recording human movements and joint positions to transfer them to a digital model. 
+					</p>
+				</section>
+				<section>
+					<h2>which one will you choose?</h2>
+					<ul>
+						<li>Marker-based Motion Capture</li>
+						<li>Markerless Motion Capture</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Marker-based Motion Capture</h2>
+						<p>
+							<em>How does it work?</em>
+						</p>
+					</section>
+					<section data-background="https://michaelkipp.de/interaction/img/prime13.png" data-background-repeat="repeat" data-background-size="300px">
+						<h3>Cameras</h3>
+						<p>
+							multiple cameras for different angles
+						</p>
+					</section>
+					<section>
+						<h3>Markers</h3>
+						<p>
+							passive or active markers
+						</p>
+						<img src="https://nofilmschool.com/media-library/maxresdefault-112.jpg?id=34068230&width=1245&height=700&quality=90&coordinates=0%2C0%2C0%2C0">
+					</section>
+					<section>
+						<h3>Software</h3>
+						<p>
+							calculation of 3D coordinates
+						</p>
+					</section>
+					<section>
+						<h3>We do not like this!!!</h3>
+						<img src="https://splab.nifs-k.ac.jp/taidai/wp-content/uploads/pic_motioncapture_rikujo01.jpg">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Markerless Motion Capture</h2>
+						<p>
+							<em>How does it work?</em>
+						</p>
+					</section>
+					<section>
+						<h3>Cameras</h3>
+						<p>
+							multiple are good but one might be enough
+						</p>
+						<img src="https://michaelkipp.de/interaction/img/prime13.png">
+					</section>
+					<section data-background="https://chatopenai.de/wp-content/uploads/2023/10/openai-logomark.png"	>
+						<h3>✨AI✨</h3>
+						<p>
+							(passive vision sytems)
+						</p>
+					</section>
+					<section>
+						<h3>We <em>like</em> this!!</h3>
+						<img src="https://blog.roboflow.com/content/images/size/w1000/2024/04/image-95.webp">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>How it works</h3>
+						<p>
+							CNN = Convolutional Neural Network
+						</p>
+						<p>
+							a CNN is a neural network for deep-learning algorithms specialized for image recognition
+						</p>
+					</section>
+					<section>
+						<p>
+							stacked hourglass model to create a heatmap of objects (joint positions)
+						</p>
+						<img src="https://saturncloud.io/images/blog/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way.webp">
+					</section>
+					<section>
+						<p>
+							RCNN (Region-based Convolutional Neural Network) creates bounding boxes around objects in an image:
+						</p>
+						<ul>
+							<li>Region Proposal: Generate potential bounding boxes (regions) in the image</li>
+							<li>Feature Extraction: Use a CNN to extract features from each proposed region</li>
+							<li>Classification: Classify each region and choose relevant bounding box coordinates</li>
+						</ul>
+					</section>
+					<section>
+						<img src="https://www.researchgate.net/publication/365602992/figure/fig7/AS:11431281108130007@1671332840590/In-the-two-stage-cascade-model-a-faster-RCNN-person-detector-is-used-in-the-first-stage.png">
+						<p>
+							This should happen before the joint estimation to improve efficiancy
+						</p>
+					</section>
+					<section>
+						<h2>3D Pose-Estimation</h2>
+						<ul>
+							<li>add a 3D skeleton model</li>
+							<li>3D-joint-estimation through algorithms (Projected Matching Pursuit)</li>
+						</ul>
+					</section>
+					<section>
+						<img src="https://blog.roboflow.com/content/images/size/w1000/2024/04/image-96.webp">
+					</section>
+				</section>
+				<section>
+					<h2>Comparison</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Marker-based</th>
+								<th>Markerless</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>expensive</td>
+								<td>cheaper</td>
+							</tr>
+							<tr>
+								<td>time-consuming</td>
+								<td>real-time</td>
+							</tr>
+							<tr>
+								<td>limited to studio</td>
+								<td>anywhere</td>
+							</tr>
+							<tr>
+								<td>more accurate</td>
+								<td>less accurate</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<section>
+						<h2>WiTrack</h2>
+					</section>
+					<section>
+						<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sbFZPPC7REc?si=mKstjlROV2e2rNxb&amp;controls=0&amp;start=111" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</section>
+					<section>
+						<h3>How it works</h3>
+						<p>
+							<em>WiTrack</em> is a system that uses reflecting radio signals to track human motion.
+						</p>
+						<p>
+							<ul>
+								<li>1 tranmitter + 3 receivers</li>
+								<li>calculate the time it takes for a signal to travel from the transmitter to the receiver</li>
+								<li>triangulate the position of the person</li>
+							</ul>
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Applications</h2>
+						<ul>
+							<li>Animation</li>
+							<li>Healthcare</li>
+							<li>Security</li>
+							<li>VR</li>
+						</ul>
+					</section>
+					<section>
+						<img src="https://www.mdpi.com/symmetry/symmetry-12-00744/article_deploy/html/images/symmetry-12-00744-g005.png">
+					</section>
+					<section>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/7wGeBXvpGCY?si=7NvbF43pFSVnyI30&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					</section>
+				</section>
+				<section>
+					<h2>Challenges</h2>
+					<ul>
+						<li>occlusion</li>
+						<li>lighting</li>
+						<li>background</li>
+						<li>accuracy</li>
+						<li>training data</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Discussion</h2>
+					<ul>
+						<li class="fragment">Do you regularly use motion capture or are there places where you might come into contact with mo-cap?</li>
+						<li class="fragment">What privacy issues do you see with markerless motion capture?</li>
+						<li class="fragment">How does bias in training data affect the accuracy of motion capture for different body types, skin tones, or clothing styles?</li>
+						<li class="fragment">What are the potential consequences of biased training data in real-world applications like sports, medicine, or security?</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
